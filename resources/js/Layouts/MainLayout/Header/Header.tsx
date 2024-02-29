@@ -1,11 +1,20 @@
 import { Link } from "@inertiajs/react";
 import { motion } from 'framer-motion';
+import { useEffect } from "react";
 
-interface HeaderProps{
+interface HeaderProps {
   open?:boolean;
   changeOpen?: () => void;
+  closeNav?: () => void;
 }
-const Header = ({open, changeOpen}: HeaderProps) => {
+const Header = ({open, changeOpen, closeNav}: HeaderProps) => {
+
+
+  // const scrollDirection = useScrollMenu();
+  
+  // console.log(scrollDirection);
+  
+  
   const nav = {
     open: {
       opacity: 1,
@@ -40,26 +49,28 @@ const Header = ({open, changeOpen}: HeaderProps) => {
     },
      }
   }
-  
+  // ${ scrollDirection === 'down' ? "-top-20" : "top-0"}
   
   return (
-    <header 
-      // className="relative w-full min-h-8"
-      className="sticky top-0 min-h-6"
+    <header
+      className={`fixed z-50 w-full t-0 min-h-20 transition-all duration-200`}
       >
-      <button 
-        // className="fixed right-4 top-2 z-20"
-        className="p-3"
-        onClick={changeOpen}
-        >
-          Меню
-      </button>
+        <div className="flex min-h-20 items-center justify-end">
+          <button 
+            className="p-3"
+            onClick={changeOpen}
+            >
+              Меню
+          </button>
+
+        </div>
       <motion.nav
-        className={`absolute z-20 h-screen top-[64px] left-0 right-0 bottom-0 bg-slate-100 pointer-events-none  ${open && "pointer-events-auto"}`}
+        className={`absolute z-50 h-screen top-0 left-0 right-0 bottom-0 bg-slate-100 pointer-events-none  ${open && "pointer-events-auto"}`}
         initial="closed"
         animate={open ? "open" : "closed"}
         variants={nav}
       >
+        <button onClick={closeNav}>Close</button>
         <motion.ul 
           className="flex flex-col gap-4 justify-center items-center h-full"
           variants={variants}
@@ -72,7 +83,7 @@ const Header = ({open, changeOpen}: HeaderProps) => {
           </motion.li>
         </motion.ul>
     </motion.nav>
-    </header>
+    </header> 
   )
 }
 

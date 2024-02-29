@@ -13,7 +13,7 @@ export default function About(){
     return (
         <MainLayout>
           <Head>
-            <title>Funny Coffee - О нас</title>
+            <title>О нас</title>
             <meta name="description" content="Страница о кофейне" />
           </Head>
           <div className="bg-purple-300 h-screen">

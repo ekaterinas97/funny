@@ -1,7 +1,7 @@
 const Banner = () => {
     return (
         <div id="banner" 
-            className="h-full w-full bg-banner-image-mobile bg-[-50px] filter brightness-90 lg:h-[600px]  lg:bg-banner-image bg-no-repeat lg:bg-center bg-cover flex justify-center items-center bg-purple-200">
+            className="relative min-h-screen w-full bg-banner-image-mobile bg-center md:h-[600px]  md:bg-banner-image bg-no-repeat md:bg-center bg-cover flex justify-center items-center bg-purple-200">
             <div>
                 <h1 className="text-zinc-100 font-extrabold">
                     <span className="text-4xl uppercase text-[#ebb10e]">Funny</span>

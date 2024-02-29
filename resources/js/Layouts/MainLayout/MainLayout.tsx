@@ -1,6 +1,6 @@
 import PageTransition from '@/Components/PageTransition/PageTransition';
 import Header from './Header/Header';
-import s from './LandingLayout.module.css';
+import s from './MainLayout.module.css';
 import cn from 'classnames';
 import { ReactNode, useState } from 'react';
 
@@ -17,7 +17,7 @@ const  MainLayout = ({children}: MainLayoutProps) => {
         <div className={cn(s.container, {
             [s['menu-open']]: navOpen
         })}>
-            <Header open={navOpen} changeOpen={() => setNavOpen(!navOpen)} />
+            <Header open={navOpen} closeNav={()=>setNavOpen(false)} changeOpen={() => setNavOpen(true)} />
             <main>
                 <PageTransition>
                     {children}
